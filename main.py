@@ -7,12 +7,11 @@ from st_aggrid.grid_options_builder import GridOptionsBuilder
 
 
 
-def main():
-    conn = lite.connect('banco.db')
-    cur = conn.cursor()
-    cur.execute(''' CREATE TABLE IF NOT EXISTS Cadastro(NOME text, APELIDO TEXT, RESIDENCIA TEXT, IDADE INT, CONTACTO TEXT, ESTATUS TEXT, ESTADO CÍVIL TEXT, POSIÇAO TEXT)''')
-    st.set_page_config(page_title="IGREJA WESLEYANA-NAMPULA")
-    with st.sidebar:
+conn = lite.connect('banco.db')
+cur = conn.cursor()
+cur.execute(''' CREATE TABLE IF NOT EXISTS Cadastro(NOME text, APELIDO TEXT, RESIDENCIA TEXT, IDADE INT, CONTACTO TEXT, ESTATUS TEXT, ESTADO CÍVIL TEXT, POSIÇAO TEXT)''')
+st.set_page_config(page_title="IGREJA WESLEYANA-NAMPULA")
+with st.sidebar:
         Selecao=option_menu(
         menu_title="MENU",
         options=["INÍCIO","CADASTRO","MEMBROS","CONTACTO"],
